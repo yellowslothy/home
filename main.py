@@ -2,7 +2,6 @@ import streamlit as st
 
 st.title('나의 첫 streamlit 프로젝트!')
 st.write('Hello steamlit')
-import streamlit as st
 
 st.set_page_config(
     page_title="🌈 MBTI 직업 추천기 💼",
