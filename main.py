@@ -9,41 +9,50 @@ st.set_page_config(
 st.markdown("""
     <style>
     body {
-        background-color: #fff8fc;
+        background-color: #fff8f0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     .big-title {
         text-align: center;
         font-size: 50px;
         font-weight: bold;
-        color: #ff4b91;
-        text-shadow: 2px 2px #ffe6f0;
+        color: #d67e00;
+        text-shadow: 2px 2px #ffd966;
         margin-bottom: 10px;
     }
     .subtitle {
         text-align: center;
         font-size: 24px;
-        color: #f48fb1;
+        color: #b38600;
         margin-bottom: 30px;
     }
     .job-box {
-        background-color: #ffe6f0;
-        padding: 15px;
-        border-radius: 15px;
+        background-color: #ffec99;  /* 노란색 계열 */
+        padding: 18px 20px;
+        border-radius: 20px;
         margin-bottom: 10px;
         font-size: 20px;
-        color: #d81b60;
-        box-shadow: 2px 2px 10px rgba(255, 182, 193, 0.2);
+        color: #b37400;
+        font-weight: 700;
+        box-shadow: 3px 3px 8px rgba(189, 158, 0, 0.4);
+        transition: transform 0.2s ease-in-out;
+    }
+    .job-box:hover {
+        transform: scale(1.03);
+        box-shadow: 4px 4px 15px rgba(189, 158, 0, 0.6);
     }
     .job-desc {
-        background-color: #fff0f6;
-        border-left: 5px solid #f48fb1;
-        padding: 10px 20px;
+        background-color: #f5f1e9; /* 베이지색 계열 */
+        border-left: 6px solid #d6bc61;
+        padding: 15px 25px;
         margin-bottom: 25px;
         font-size: 16px;
-        color: #b71c1c;
+        color: #7a6a31;
         font-style: italic;
+        border-radius: 10px;
+        box-shadow: 2px 2px 10px rgba(214, 188, 97, 0.3);
     }
-    </style>
+</style>
 """, unsafe_allow_html=True)
 
 st.markdown("<div class='big-title'>🌟 MBTI로 알아보는 나의 직업 💼</div>", unsafe_allow_html=True)
@@ -148,26 +157,4 @@ job_recommendations = {
         "스포츠 트레이너 🏋️": "운동선수들의 체력과 기술을 관리합니다."
     },
     "ESFP": {
-        "배우 🎭": "무대나 스크린에서 다양한 역할을 연기합니다.",
-        "MC 🎤": "행사나 방송을 진행하며 분위기를 띄웁니다.",
-        "이벤트 플래너 🎊": "행사를 기획하고 매끄럽게 진행합니다.",
-        "유튜버 📹": "영상 콘텐츠를 제작해 대중과 소통합니다."
-    }
-}
-
-mbti_choice = st.selectbox("✨ 당신의 MBTI는 무엇인가요?", mbti_types)
-
-if mbti_choice:
-    mbti_key = mbti_choice.split()[0]
-    st.markdown(f"<h2 style='color:#d81b60;'>💡 {mbti_choice}에게 추천하는 직업 리스트!</h2>", unsafe_allow_html=True)
-    for job, desc in job_recommendations[mbti_key].items():
-        st.markdown(f"<div class='job-box'>🔹 {job}</div>", unsafe_allow_html=True)
-        st.markdown(f"<div class='job-desc'>{desc}</div>", unsafe_allow_html=True)
-
-st.markdown("""
-    <hr><br>
-    <div style='text-align:center; font-size:18px; color:#888;'>
-        🎓 진로는 인생의 나침반이에요. <br> MBTI는 그 방향을 제시해주는 하나의 힌트일 뿐! <br>
-        당신의 꿈을 응원합니다 💫
-    </div>
-""", unsafe_allow_html=True)
+        "배우 🎭": "무대나 스크린에서 다양한 역할을
