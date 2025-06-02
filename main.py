@@ -4,20 +4,46 @@ st.title('나의 첫 streamlit 프로젝트!')
 st.write('Hello steamlit')
 import streamlit as st
 
-# 🎨 페이지 설정
 st.set_page_config(
-    page_title="MBTI 직업 추천기 🎯",
-    page_icon="💼",
+    page_title="🌈 MBTI 직업 추천기 💼",
+    page_icon="🧠",
     layout="wide"
 )
 
-# 🎆 제목
 st.markdown("""
-    <h1 style='text-align: center; color: #f63366;'>💖 MBTI 기반 직업 추천기 💖</h1>
-    <h3 style='text-align: center; color: #4CAF50;'>당신의 성격 유형에 딱 맞는 직업은 무엇일까요? 🧠💼</h3>
+    <style>
+    body {
+        background-color: #fff8fc;
+    }
+    .big-title {
+        text-align: center;
+        font-size: 50px;
+        font-weight: bold;
+        color: #ff4b91;
+        text-shadow: 2px 2px #ffe6f0;
+        margin-bottom: 10px;
+    }
+    .subtitle {
+        text-align: center;
+        font-size: 24px;
+        color: #f48fb1;
+        margin-bottom: 30px;
+    }
+    .job-box {
+        background-color: #ffe6f0;
+        padding: 15px;
+        border-radius: 15px;
+        margin-bottom: 10px;
+        font-size: 20px;
+        color: #d81b60;
+        box-shadow: 2px 2px 10px rgba(255, 182, 193, 0.2);
+    }
+    </style>
 """, unsafe_allow_html=True)
 
-# 📊 MBTI 목록
+st.markdown("<div class='big-title'>🌟 MBTI로 알아보는 나의 직업 💼</div>", unsafe_allow_html=True)
+st.markdown("<div class='subtitle'>MBTI 유형을 선택하면, 당신에게 찰떡인 직업을 알려드려요! 💖</div>", unsafe_allow_html=True)
+
 mbti_types = [
     "INTJ 🧠", "INTP 🤓", "ENTJ 🧑‍💼", "ENTP 🧑‍🔬",
     "INFJ 🧘", "INFP 🎨", "ENFJ 🗣️", "ENFP 🌟",
@@ -25,7 +51,6 @@ mbti_types = [
     "ISTP 🛠️", "ISFP 🎸", "ESTP 🚀", "ESFP 🎤"
 ]
 
-# 💡 직업 추천 DB
 job_recommendations = {
     "INTJ": ["전략 기획가 🧠", "데이터 과학자 📊", "소프트웨어 엔지니어 👨‍💻", "연구원 🔬"],
     "INTP": ["이론 물리학자 ⚛️", "AI 연구자 🤖", "작가 ✍️", "UX 디자이너 🧩"],
@@ -45,17 +70,18 @@ job_recommendations = {
     "ESFP": ["배우 🎭", "MC 🎤", "이벤트 플래너 🎊", "유튜버 📹"]
 }
 
-# 🎯 사용자 선택
-mbti_choice = st.selectbox("당신의 MBTI를 선택하세요! 👇", mbti_types)
+mbti_choice = st.selectbox("✨ 당신의 MBTI는 무엇인가요?", mbti_types)
 
 if mbti_choice:
     mbti_key = mbti_choice.split()[0]
-    st.markdown(f"## 🌟 추천 직업 for **{mbti_choice}** 🌟")
+    st.markdown(f"<h2 style='color:#d81b60;'>💡 {mbti_choice}에게 추천하는 직업 리스트!</h2>", unsafe_allow_html=True)
     for job in job_recommendations[mbti_key]:
-        st.markdown(f"### 🔹 {job}")
+        st.markdown(f"<div class='job-box'>🔹 {job}</div>", unsafe_allow_html=True)
 
-# 🌈 하단 메시지
 st.markdown("""
-    <br><hr>
-    <p style='text-align: center; font-size: 18px;'>💡 자신의 성격에 맞는 진로를 찾는 것이 인생의 방향을 정하는 첫걸음이에요!<br>행복한 진로 탐색이 되시길 바랍니다 😊</p>
+    <hr><br>
+    <div style='text-align:center; font-size:18px; color:#888;'>
+        🎓 진로는 인생의 나침반이에요. <br> MBTI는 그 방향을 제시해주는 하나의 힌트일 뿐! <br>
+        당신의 꿈을 응원합니다 💫
+    </div>
 """, unsafe_allow_html=True)
