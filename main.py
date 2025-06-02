@@ -143,4 +143,31 @@ job_recommendations = {
     },
     "ESTP": {
         "세일즈맨 💼": "상품과 서비스를 판매하는 전문가입니다.",
-        "스턴
+        "스턴트맨 🤸": "위험한 장면을 연기하며 영화나 공연을 빛냅니다.",
+        "파일럿 ✈️": "비행기를 조종해 사람과 화물을 안전하게 운송합니다.",
+        "스포츠 트레이너 🏋️": "운동선수들의 체력과 기술을 관리합니다."
+    },
+    "ESFP": {
+        "배우 🎭": "무대나 스크린에서 다양한 역할을 연기합니다.",
+        "MC 🎤": "행사나 방송을 진행하며 분위기를 띄웁니다.",
+        "이벤트 플래너 🎊": "행사를 기획하고 매끄럽게 진행합니다.",
+        "유튜버 📹": "영상 콘텐츠를 제작해 대중과 소통합니다."
+    }
+}
+
+mbti_choice = st.selectbox("✨ 당신의 MBTI는 무엇인가요?", mbti_types)
+
+if mbti_choice:
+    mbti_key = mbti_choice.split()[0]
+    st.markdown(f"<h2 style='color:#d81b60;'>💡 {mbti_choice}에게 추천하는 직업 리스트!</h2>", unsafe_allow_html=True)
+    for job, desc in job_recommendations[mbti_key].items():
+        st.markdown(f"<div class='job-box'>🔹 {job}</div>", unsafe_allow_html=True)
+        st.markdown(f"<div class='job-desc'>{desc}</div>", unsafe_allow_html=True)
+
+st.markdown("""
+    <hr><br>
+    <div style='text-align:center; font-size:18px; color:#888;'>
+        🎓 진로는 인생의 나침반이에요. <br> MBTI는 그 방향을 제시해주는 하나의 힌트일 뿐! <br>
+        당신의 꿈을 응원합니다 💫
+    </div>
+""", unsafe_allow_html=True)
